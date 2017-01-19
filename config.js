@@ -67,8 +67,7 @@ config = {
     // When running Ghost in the wild, use the production environment
     // Configure your URL and mail settings here
     production: {
-        url: websiteUrl,
-        urlSSL: websiteUrlSSL,
+        url: 'https://jimmybogard.com',
 
         // Visit http://support.ghost.org/mail for instructions
         mail: {
@@ -95,7 +94,7 @@ config = {
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
             port: process.env.PORT
         },
-        forceAdminSSL: true
+        forceAdminSSL: false
     },
 
     // **Developers only need to edit below here**

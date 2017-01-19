@@ -3,10 +3,11 @@ var config = require('../config'),
     checkSSL;
 
 function isSSLrequired(isAdmin, configUrl, forceAdminSSL) {
-    var forceSSL = url.parse(configUrl).protocol === 'https:' ? true : false;
+/*    var forceSSL = url.parse(configUrl).protocol === 'https:' ? true : false;
     if (forceSSL || (isAdmin && forceAdminSSL)) {
         return true;
     }
+*/
     return false;
 }
 
