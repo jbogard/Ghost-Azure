@@ -60,7 +60,15 @@ config = {
         paths: {
             contentPath: path.join(__dirname, '/content/')
         },
-        forceAdminSSL: false
+        forceAdminSSL: false,
+        storage: {
+            active: 'ghost-azure-storage',
+            'ghost-azure-storage': {
+                container: 'jimmybogardsblog',
+                cdnUrl: "https://jimmybogardsblog.blob.core.windows.net/jimmybogardsblog",
+                useHttps : "true" //Optional: CDN protocol. Defaults to http if omitted. Set to "true", to enable.
+            }
+        }
     },
 
     // ### Production
@@ -94,7 +102,15 @@ config = {
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
             port: process.env.PORT
         },
-        forceAdminSSL: false
+        forceAdminSSL: false,
+        storage: {
+            active: 'ghost-azure-storage',
+            'ghost-azure-storage': {
+                container: 'jimmybogardsblog',
+                cdnUrl: "https://jimmybogardsblog.blob.core.windows.net/jimmybogardsblog",
+                useHttps : "true" //Optional: CDN protocol. Defaults to http if omitted. Set to "true", to enable.
+            }
+        }
     },
 
     // **Developers only need to edit below here**

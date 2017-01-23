@@ -1,0 +1,91 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "ghost-azure-storage",
+        "scope": null,
+        "escapedName": "ghost-azure-storage",
+        "name": "ghost-azure-storage",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/jimmybogard/Documents/code/Ghost-Azure"
+    ]
+  ],
+  "_from": "ghost-azure-storage@latest",
+  "_id": "ghost-azure-storage@1.3.0",
+  "_inCache": true,
+  "_location": "/ghost-azure-storage",
+  "_nodeVersion": "4.2.1",
+  "_npmUser": {
+    "name": "tparnell",
+    "email": "tparnell8@gmail.com"
+  },
+  "_npmVersion": "2.14.7",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "ghost-azure-storage",
+    "scope": null,
+    "escapedName": "ghost-azure-storage",
+    "name": "ghost-azure-storage",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/ghost-azure-storage/-/ghost-azure-storage-1.3.0.tgz",
+  "_shasum": "42c2bc474df6aa508dd85769d1ae97bc4e054c64",
+  "_shrinkwrap": null,
+  "_spec": "ghost-azure-storage",
+  "_where": "/Users/jimmybogard/Documents/code/Ghost-Azure",
+  "author": {
+    "name": "Tommy James Parnell"
+  },
+  "bugs": {
+    "url": "https://github.com/tparnell8/ghost-azurestorage/issues"
+  },
+  "dependencies": {
+    "azure-storage": "~0.6.0",
+    "url": "^0.11.0",
+    "when": "^3.7.4"
+  },
+  "description": "Store content from ghost in azure file storage",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "42c2bc474df6aa508dd85769d1ae97bc4e054c64",
+    "tarball": "https://registry.npmjs.org/ghost-azure-storage/-/ghost-azure-storage-1.3.0.tgz"
+  },
+  "gitHead": "6a8230111e21d999fcd6249504092a3e8a73bca2",
+  "homepage": "http://tparnell.io",
+  "keywords": [
+    "ghost",
+    "microsoft",
+    "azure",
+    "storage",
+    "plugin",
+    "blog"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "tparnell",
+      "email": "tparnell8@gmail.com"
+    }
+  ],
+  "name": "ghost-azure-storage",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tparnell8/ghost-azurestorage.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.3.0"
+}
