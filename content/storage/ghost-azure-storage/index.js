@@ -6,16 +6,27 @@ var azure = require('azure-storage'),
     nodefn = require('when/node'),
     url = require('url'),
     options = {};
+var util = require('util');
+var BaseStore;
 
+try {
+    BaseStore = require('ghost/core/server/storage/base');
+} catch (e) {
+    if (e.code !== 'MODULE_NOT_FOUND') throw e;
+    BaseStore = require(path.join(process.cwd(), 'core/server/storage/base'));
+}
 
 function azurestore(config) {
+    BaseStore.call(this);
     options = config || {};
     options.connectionString = options.connectionString || process.env.AZURE_STORAGE_CONNECTION_STRING;
     options.container = options.container || 'ghost';
     options.useHttps = options.useHttps == 'true';
 };
 
-azurestore.prototype.save = function (image) {
+util.inherits(azurestore, BaseStore);
+
+azurestore.prototype.save = function save(image) {
     var fileService = azure.createBlobService(options.connectionString);
     var uniqueName = new Date().getMonth() + "/" + new Date().getFullYear() + "/" + image.name;
     return nodefn.call(fileService.createContainerIfNotExists.bind(fileService), options.container, { publicAccessLevel: 'blob' })
@@ -35,12 +46,15 @@ azurestore.prototype.save = function (image) {
     });
 };
 
-azurestore.prototype.serve = function () {
+azurestore.prototype.serve = function serve() {
     return function (req, res, next) {
         next();
     };
 };
 
+azurestore.prototype.exists = function exists() {};
+
+azurestore.prototype.delete = function deleteFile() {};
 
 
 

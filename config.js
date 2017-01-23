@@ -64,9 +64,7 @@ config = {
         storage: {
             active: 'ghost-azure-storage',
             'ghost-azure-storage': {
-                container: 'jimmybogardsblog',
-                cdnUrl: "https://jimmybogardsblog.blob.core.windows.net/jimmybogardsblog",
-                useHttps : "true" //Optional: CDN protocol. Defaults to http if omitted. Set to "true", to enable.
+                container: 'jimmybogardsblog'
             }
         }
     },
@@ -106,9 +104,7 @@ config = {
         storage: {
             active: 'ghost-azure-storage',
             'ghost-azure-storage': {
-                container: 'jimmybogardsblog',
-                cdnUrl: "https://jimmybogardsblog.blob.core.windows.net/jimmybogardsblog",
-                useHttps : "true" //Optional: CDN protocol. Defaults to http if omitted. Set to "true", to enable.
+                container: 'jimmybogardsblog'
             }
         }
     },
