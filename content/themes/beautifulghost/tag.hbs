@@ -1,0 +1,38 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+{{#tag}}
+<header class="header-section">
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-heading">
+          <h1>{{name}}</h1>
+            <span class="post-meta">
+              {{#if description}}
+                  {{description}}
+              {{else}}
+                  A {{../pagination.total}}-post collection
+              {{/if}}
+            </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+{{/tag}}
+
+{{!-- The main content area on the homepage --}}
+<div role="main" class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+
+    {{!-- The tag below includes the post loop - partials/loop.hbs --}}
+    {{> "loop"}}
+
+    </div>
+  </div>
+</div>
