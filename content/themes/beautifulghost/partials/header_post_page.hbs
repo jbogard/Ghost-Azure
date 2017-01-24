@@ -13,9 +13,12 @@
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="{{#is "post"}}post-heading{{else}}page-heading{{/is}}">
           <h1>{{title}}</h1>
-      
+
           {{#is "post"}}
-          <span class="post-meta">Posted on <time datetime="{{date format='YYYY-MM-DD'}}">{{date}}</time></span>
+          <span class="post-meta">
+            <time datetime="{{date format='YYYY-MM-DD'}}">{{date}}</time>
+            {{tags prefix=" on "}}
+          </span>
           {{/is}}
         </div>
       </div>
@@ -31,7 +34,10 @@
         <div class="{{#is "post"}}post-heading{{else}}page-heading{{/is}}">
           <h1>{{title}}</h1>
           {{#is "post"}}
-          <span class="post-meta">Posted on <time datetime="{{date format='YYYY-MM-DD'}}">{{date}}</time></span>
+            <span class="post-meta">
+              <time datetime="{{date format='YYYY-MM-DD'}}">{{date}}</time>
+              {{tags prefix=" on "}}
+            </span>
           {{/is}}
         </div>
       </div>
