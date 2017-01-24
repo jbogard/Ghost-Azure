@@ -1,0 +1,21 @@
+<div class="posts-list">
+  {{#foreach posts}}
+  <article class="post-preview">
+    <a href="{{url}}">
+    <h2 class="post-title">{{title}}</h2>
+    </a>
+
+    <p class="post-meta">
+      Posted on <time datetime="{{date format='YYYY-MM-DD'}}">{{date}}</time>
+    </p>
+
+    <div class="post-entry">
+      {{excerpt words="70"}}
+    <a href="{{url}}" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+  </article>
+  {{/foreach}}
+</div>
+
+{{pagination}}
