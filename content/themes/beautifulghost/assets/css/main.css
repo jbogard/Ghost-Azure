@@ -319,7 +319,7 @@ footer .theme-by {
 }
 
 .post-heading .post-meta a {
-  color: #fff;
+  color: #808080;
 }
 
 .post-preview .post-meta a:hover,
@@ -377,6 +377,9 @@ footer .theme-by {
   padding: 100px 0;
   color: #FFF;
   text-shadow: 1px 1px 3px #000;
+}
+.intro-header.big-img .post-heading a {
+  color: #FFF;
 }
 .intro-header .page-heading h1 {
   margin-top: 0;
