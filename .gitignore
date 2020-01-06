@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# Ghost DB file
+*.db
+*.db-journal
