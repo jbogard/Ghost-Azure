@@ -8,106 +8,6 @@ const signupEmail = require('./emails/signup');
 const subscribeEmail = require('./emails/subscribe');
 const config = require('./config');
 
-async function createMember({email, name, note}, options = {}) {
-    const model = await models.Member.add({
-        email,
-        name: name || null,
-        note: note || null
-    });
-    const member = model.toJSON(options);
-    return member;
-}
-
-async function getMember(data, options = {}) {
-    if (!data.email && !data.id && !data.uuid) {
-        return Promise.resolve(null);
-    }
-    const model = await models.Member.findOne(data, options);
-    if (!model) {
-        return null;
-    }
-    const member = model.toJSON(options);
-    return member;
-}
-
-async function setMetadata(module, metadata) {
-    if (module !== 'stripe') {
-        return;
-    }
-
-    if (metadata.customer) {
-        await models.MemberStripeCustomer.upsert(metadata.customer, {
-            customer_id: metadata.customer.customer_id
-        });
-    }
-
-    if (metadata.subscription) {
-        await models.StripeCustomerSubscription.upsert(metadata.subscription, {
-            subscription_id: metadata.subscription.subscription_id
-        });
-    }
-
-    return;
-}
-
-async function getMetadata(module, member) {
-    if (module !== 'stripe') {
-        return;
-    }
-
-    const customers = (await models.MemberStripeCustomer.findAll({
-        filter: `member_id:${member.id}`
-    })).toJSON();
-
-    const subscriptions = await customers.reduce(async (subscriptionsPromise, customer) => {
-        const customerSubscriptions = await models.StripeCustomerSubscription.findAll({
-            filter: `customer_id:${customer.customer_id}`
-        });
-        return (await subscriptionsPromise).concat(customerSubscriptions.toJSON());
-    }, []);
-
-    return {
-        customers: customers,
-        subscriptions: subscriptions
-    };
-}
-
-async function updateMember({name, note, subscribed}, options = {}) {
-    const attrs = {
-        name: name || null,
-        note: note || null
-    };
-
-    if (subscribed !== undefined) {
-        attrs.subscribed = subscribed;
-    }
-
-    const model = await models.Member.edit(attrs, options);
-
-    const member = model.toJSON(options);
-    return member;
-}
-
-function deleteMember(options) {
-    options = options || {};
-    return models.Member.destroy(options).catch(models.Member.NotFoundError, () => {
-        throw new common.errors.NotFoundError({
-            message: common.i18n.t('errors.api.resource.resourceNotFound', {
-                resource: 'Member'
-            })
-        });
-    });
-}
-
-function listMembers(options) {
-    return models.Member.findPage(options).then((models) => {
-        return {
-            members: models.data.map(model => model.toJSON(options)),
-            meta: models.meta
-        };
-    });
-}
-
 const ghostMailer = new mail.GhostMailer();
 
 module.exports = createApiInstance;
@@ -223,13 +123,9 @@ function createApiInstance() {
         paymentConfig: {
             stripe: config.getStripePaymentConfig()
         },
-        setMetadata,
-        getMetadata,
-        createMember,
-        updateMember,
-        getMember,
-        deleteMember,
-        listMembers,
+        memberStripeCustomerModel: models.MemberStripeCustomer,
+        stripeCustomerSubscriptionModel: models.StripeCustomerSubscription,
+        memberModel: models.Member,
         logger: common.logging
     });
 
