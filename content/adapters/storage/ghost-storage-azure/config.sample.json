@@ -1,0 +1,13 @@
+{
+    "storage": {
+      "active": "ghost-storage-azure",
+      "ghost-storage-azure": {
+        "connectionString": "YourConnectionStringHere",
+        "container": "YourOptionalContainerName",
+        "cdnUrl": "YourCDNEndpointDomain",
+        "useHttps" : "true",
+        "cacheControl" : "2592000",
+        "useDatedFolder" : true
+      }
+    }
+}

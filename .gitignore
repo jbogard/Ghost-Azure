@@ -69,7 +69,7 @@ typings/
 /content/apps/**/*
 /content/themes/**/*
 /content/images/**/*
-/content/adapters/storage/**/*
+#/content/adapters/storage/**/*
 /content/adapters/scheduling/**/*
 !/content/themes/casper
 !/README.md

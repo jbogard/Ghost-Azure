@@ -27,5 +27,14 @@
             "maxAge": 0
         }
 	},
-	"forceAdminSSL": false
+    "forceAdminSSL": false,
+    "storage": {
+        "active": "ghost-storage-azure",
+        "ghost-storage-azure": {
+            "container": "jimmybogardsblog",
+            "useHttps" : "true",
+            "cacheControl" : "2592000",
+            "useDatedFolder" : true
+        }
+    }
 }
