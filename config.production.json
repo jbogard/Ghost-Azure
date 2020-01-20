@@ -1,4 +1,5 @@
 {
+    "url": "https://jimmybogard.com",
     "database": {
         "client": "sqlite3",
         "connection": {
