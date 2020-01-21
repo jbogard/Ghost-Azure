@@ -100,6 +100,8 @@ SET
 call :SelectNodeVersion
 
 node -p "process.arch"
+where node
+where npm
 
 :: 3. Install npm packages
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
