@@ -1,3 +1,4 @@
 node_env: production
 loggingEnabled: true
 enableXFF: true
+nodeProcessCommandLine: "D:\Program Files\nodejs\10.16.3\node.exe"
